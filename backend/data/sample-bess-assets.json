@@ -1,0 +1,70 @@
+[
+  {
+    "assetId": "BESS-CA-001",
+    "site": "Moss Landing Phase I",
+    "region": "CAISO",
+    "capacityMWh": 300,
+    "powerRatingMW": 150,
+    "roundTripEfficiency": 0.88,
+    "availability": 0.97,
+    "status": "online",
+    "lastUpdated": "2025-09-25T15:30:00.000Z",
+    "metrics": [
+      { "timestamp": "2025-09-21T00:00:00.000Z", "stateOfCharge": 72, "temperatureC": 24 },
+      { "timestamp": "2025-09-22T00:00:00.000Z", "stateOfCharge": 68, "temperatureC": 25 },
+      { "timestamp": "2025-09-23T00:00:00.000Z", "stateOfCharge": 74, "temperatureC": 24 },
+      { "timestamp": "2025-09-24T00:00:00.000Z", "stateOfCharge": 70, "temperatureC": 23 }
+    ]
+  },
+  {
+    "assetId": "BESS-NV-014",
+    "site": "Gemini Solar Storage",
+    "region": "WECC",
+    "capacityMWh": 380,
+    "powerRatingMW": 190,
+    "roundTripEfficiency": 0.91,
+    "availability": 0.93,
+    "status": "online",
+    "lastUpdated": "2025-09-25T14:00:00.000Z",
+    "metrics": [
+      { "timestamp": "2025-09-21T00:00:00.000Z", "stateOfCharge": 61, "temperatureC": 27 },
+      { "timestamp": "2025-09-22T00:00:00.000Z", "stateOfCharge": 66, "temperatureC": 28 },
+      { "timestamp": "2025-09-23T00:00:00.000Z", "stateOfCharge": 63, "temperatureC": 27 },
+      { "timestamp": "2025-09-24T00:00:00.000Z", "stateOfCharge": 68, "temperatureC": 26 }
+    ]
+  },
+  {
+    "assetId": "BESS-TX-207",
+    "site": "South Texas Flex Reserve",
+    "region": "ERCOT",
+    "capacityMWh": 220,
+    "powerRatingMW": 110,
+    "roundTripEfficiency": 0.86,
+    "availability": 0.89,
+    "status": "maintenance",
+    "lastUpdated": "2025-09-24T22:15:00.000Z",
+    "metrics": [
+      { "timestamp": "2025-09-21T00:00:00.000Z", "stateOfCharge": 49, "temperatureC": 29 },
+      { "timestamp": "2025-09-22T00:00:00.000Z", "stateOfCharge": 54, "temperatureC": 30 },
+      { "timestamp": "2025-09-23T00:00:00.000Z", "stateOfCharge": 50, "temperatureC": 31 },
+      { "timestamp": "2025-09-24T00:00:00.000Z", "stateOfCharge": 46, "temperatureC": 30 }
+    ]
+  },
+  {
+    "assetId": "BESS-NY-045",
+    "site": "Queens Urban Resilience",
+    "region": "NYISO",
+    "capacityMWh": 160,
+    "powerRatingMW": 80,
+    "roundTripEfficiency": 0.84,
+    "availability": 0.92,
+    "status": "online",
+    "lastUpdated": "2025-09-25T09:45:00.000Z",
+    "metrics": [
+      { "timestamp": "2025-09-21T00:00:00.000Z", "stateOfCharge": 58, "temperatureC": 22 },
+      { "timestamp": "2025-09-22T00:00:00.000Z", "stateOfCharge": 62, "temperatureC": 23 },
+      { "timestamp": "2025-09-23T00:00:00.000Z", "stateOfCharge": 65, "temperatureC": 23 },
+      { "timestamp": "2025-09-24T00:00:00.000Z", "stateOfCharge": 63, "temperatureC": 22 }
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+# Node artifacts
+backend/node_modules/
+frontend/node_modules/
+frontend/build/
+
+# Environment
+backend/.env
+frontend/.env
+
+# Editor
+.DS_Store
+.vscode/
+.ws/

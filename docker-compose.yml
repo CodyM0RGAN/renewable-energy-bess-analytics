@@ -1,0 +1,34 @@
+﻿services:
+  mongo:
+    image: mongo:6
+    container_name: bess_mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: bess_analytics
+    volumes:
+      - mongo_data:/data/db
+  backend:
+    build: ./backend
+    container_name: bess_backend
+    restart: unless-stopped
+    environment:
+      - PORT=8089
+      - MONGO_URI=mongodb://mongo:27017/bess_analytics
+    depends_on:
+      - mongo
+    ports:
+      - "8089:8089"
+  frontend:
+    build: ./frontend
+    container_name: bess_frontend
+    restart: unless-stopped
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+volumes:
+  mongo_data:
