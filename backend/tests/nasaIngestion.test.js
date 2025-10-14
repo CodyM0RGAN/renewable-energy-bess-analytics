@@ -165,3 +165,8 @@ test('fetchTelemetrySummary returns aggregated telemetry details', async () => {
   assert.ok(summary.latestTimestamp instanceof Date);
   assert.ok(summary.averageStateOfCharge > 0.6 && summary.averageStateOfCharge < 0.8);
 });
+
+test('fetchTelemetrySummary returns empty array for unknown assetIds', async () => {
+  const result = await fetchTelemetrySummary({ assetIds: ['non-existent-asset'] }, { model });
+  assert.deepEqual(result, [], 'Should return empty array when no assetIds match');
+});
