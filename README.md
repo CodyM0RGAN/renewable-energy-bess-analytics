@@ -36,3 +36,23 @@ The backend seeds the `bess_analytics` database the first time it connects. Edit
 - Replace the seed file with real ingestion pipelines
 - Extend the backend with alerting thresholds per site
 - Wire the dashboard to live telemetry or historical batch uploads
+
+## NASA BESS Telemetry Ingestion
+To load publicly available NASA battery telemetry into the local MongoDB instance, run the provided scripts from the repository root:
+
+1. Ingest the JSON payload (defaults to the bundled sample file):
+   ```bash
+   node backend/scripts/ingest-nasa-telemetry.js [path/to/nasa-telemetry.json]
+   ```
+2. Verify the data that was ingested and inspect summary statistics:
+   ```bash
+   node backend/scripts/verify-nasa-telemetry.js [optional-asset-id ...]
+   ```
+
+Both scripts honour the `MONGO_URI` environment variable and fall back to `mongodb://localhost:27017/bess_analytics`.
+
+Automated ingestion tests can be executed with:
+```bash
+npm test --prefix backend
+```
+

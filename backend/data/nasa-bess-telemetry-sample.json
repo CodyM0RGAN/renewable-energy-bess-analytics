@@ -1,0 +1,56 @@
+[
+  {
+    "assetId": "nasa-bess-001",
+    "site": "NASA Glenn Research Center",
+    "region": "Ohio",
+    "capacityMWh": 6.5,
+    "powerRatingMW": 3.2,
+    "roundTripEfficiency": 0.91,
+    "availability": 0.97,
+    "status": "online",
+    "metrics": [
+      {
+        "timestamp": "2024-01-08T00:00:00Z",
+        "stateOfCharge": 0.64,
+        "temperatureC": 21.5
+      },
+      {
+        "timestamp": "2024-01-08T01:00:00Z",
+        "stateOfCharge": 0.71,
+        "temperatureC": 22.0
+      },
+      {
+        "timestamp": "2024-01-08T02:00:00Z",
+        "stateOfCharge": 0.76,
+        "temperatureC": 22.4
+      }
+    ]
+  },
+  {
+    "assetId": "nasa-bess-002",
+    "site": "NASA Kennedy Space Center",
+    "region": "Florida",
+    "capacityMWh": 12.0,
+    "powerRatingMW": 5.0,
+    "roundTripEfficiency": 0.93,
+    "availability": 0.99,
+    "status": "online",
+    "metrics": [
+      {
+        "timestamp": "2024-01-08T00:30:00Z",
+        "stateOfCharge": 0.55,
+        "temperatureC": 28.1
+      },
+      {
+        "timestamp": "2024-01-08T01:30:00Z",
+        "stateOfCharge": 0.60,
+        "temperatureC": 28.6
+      },
+      {
+        "timestamp": "2024-01-08T02:30:00Z",
+        "stateOfCharge": 0.65,
+        "temperatureC": 29.0
+      }
+    ]
+  }
+]
