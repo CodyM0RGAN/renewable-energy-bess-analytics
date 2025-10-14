@@ -108,6 +108,51 @@ test('loadTelemetryFromFile normalises NASA telemetry dataset', async () => {
   assert.ok(assets[0].metrics[0].timestamp instanceof Date);
 });
 
+test('loadTelemetryFromFile throws on malformed JSON', async () => {
+  const malformedPath = path.join(__dirname, '..', 'data', 'malformed.json');
+  // Write a malformed JSON file for testing
+  const fs = require('fs');
+  fs.writeFileSync(malformedPath, '{ "badJson": true,'); // intentionally malformed
+  try {
+    await loadTelemetryFromFile(malformedPath);
+    assert.fail('Should throw on malformed JSON');
+  } catch (err) {
+    assert.ok(err instanceof SyntaxError || err.message.includes('Unexpected end of JSON input'));
+  } finally {
+    fs.unlinkSync(malformedPath);
+  }
+});
+
+test('loadTelemetryFromFile throws on non-array data', async () => {
+  const nonArrayPath = path.join(__dirname, '..', 'data', 'nonArray.json');
+  const fs = require('fs');
+  fs.writeFileSync(nonArrayPath, JSON.stringify({ not: 'an array' }));
+  try {
+    await loadTelemetryFromFile(nonArrayPath);
+    assert.fail('Should throw on non-array data');
+  } catch (err) {
+    assert.ok(err.message.includes('Expected array'));
+  } finally {
+    fs.unlinkSync(nonArrayPath);
+  }
+});
+
+test('loadTelemetryFromFile throws on missing required fields', async () => {
+  const missingFieldsPath = path.join(__dirname, '..', 'data', 'missingFields.json');
+  const fs = require('fs');
+  fs.writeFileSync(missingFieldsPath, JSON.stringify([
+    { assetId: 'nasa-bess-002' } // missing metrics
+  ]));
+  try {
+    await loadTelemetryFromFile(missingFieldsPath);
+    assert.fail('Should throw on missing required fields');
+  } catch (err) {
+    assert.ok(err.message.includes('metrics'));
+  } finally {
+    fs.unlinkSync(missingFieldsPath);
+  }
+});
+
 test('ingestTelemetry inserts new NASA assets and metrics', async () => {
   const payload = await loadTelemetryFromFile(datasetPath);
   const result = await ingestTelemetry(payload, { model, logger: silentLogger });
