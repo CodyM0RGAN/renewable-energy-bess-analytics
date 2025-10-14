@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const path = require('path');
+const fs = require('fs');
 
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -12,6 +13,11 @@ const datasetArg = process.argv[2];
 const datasetPath = datasetArg
   ? path.resolve(process.cwd(), datasetArg)
   : path.join(__dirname, '..', 'data', 'nasa-bess-telemetry-sample.json');
+
+if (!fs.existsSync(datasetPath)) {
+  console.error(`Error: Dataset file not found at path "${datasetPath}". Please provide a valid dataset file.`);
+  process.exit(1);
+}
 
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/bess_analytics';
 
